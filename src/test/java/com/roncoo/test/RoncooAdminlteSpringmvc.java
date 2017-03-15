@@ -25,7 +25,7 @@ public class RoncooAdminlteSpringmvc {
 		logger.info("Start generator ...");
 		List<String> warnings = new ArrayList<String>();
 		boolean overwrite = true; // 是否覆盖原来的文件
-		File configFile = new File("D:/workspace-roncoo/roncoo-mybatis-generator/src/test/resources/roncoo-adminlte-springmvc.xml");
+		File configFile = new File("/Users/gaoshiwei/Workspaces/roncoo-mybatis-generator/src/main/resources/generatorConfig.xml");
 		ConfigurationParser cp = new ConfigurationParser(warnings);
 		Configuration config = cp.parseConfiguration(configFile);
 		DefaultShellCallback callback = new DefaultShellCallback(overwrite);
