@@ -1,10 +1,9 @@
 /target/
 .project
 .classpath
-.project
+.idea
 .settings/
 .mvn
-.project
 .springBeans
 
 /bin/
