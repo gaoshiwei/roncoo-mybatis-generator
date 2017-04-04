@@ -21,6 +21,7 @@
     <result column="weight" property="weight" jdbcType="VARCHAR" />
     <result column="height" property="height" jdbcType="VARCHAR" />
     <result column="nation" property="nation" jdbcType="VARCHAR" />
+    <result column="identity_card" property="identityCard" jdbcType="VARCHAR" />
     <result column="birthday" property="birthday" jdbcType="VARCHAR" />
     <result column="is_married" property="isMarried" jdbcType="INTEGER" />
     <result column="address" property="address" jdbcType="VARCHAR" />
@@ -89,8 +90,8 @@
   </sql>
   <sql id="Base_Column_List" >
     id, user_no, password, salt, locked, organization_id, user_type, name, staff_no, 
-    position, sex, age, nick_name, phone, mobile, email, weight, height, nation, birthday, 
-    is_married, address, create_by, create_time, update_by, update_time
+    position, sex, age, nick_name, phone, mobile, email, weight, height, nation, identity_card, 
+    birthday, is_married, address, create_by, create_time, update_by, update_time
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.sichuang.bean.entity.SysUserExample" >
     select
@@ -132,18 +133,20 @@
       position, sex, age, 
       nick_name, phone, mobile, 
       email, weight, height, 
-      nation, birthday, is_married, 
-      address, create_by, create_time, 
-      update_by, update_time)
+      nation, identity_card, birthday, 
+      is_married, address, create_by, 
+      create_time, update_by, update_time
+      )
     values (#{id,jdbcType=BIGINT}, #{userNo,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{salt,jdbcType=VARCHAR}, #{locked,jdbcType=INTEGER}, #{organizationId,jdbcType=BIGINT}, 
       #{userType,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{staffNo,jdbcType=VARCHAR}, 
       #{position,jdbcType=VARCHAR}, #{sex,jdbcType=INTEGER}, #{age,jdbcType=VARCHAR}, 
       #{nickName,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
       #{email,jdbcType=VARCHAR}, #{weight,jdbcType=VARCHAR}, #{height,jdbcType=VARCHAR}, 
-      #{nation,jdbcType=VARCHAR}, #{birthday,jdbcType=VARCHAR}, #{isMarried,jdbcType=INTEGER}, 
-      #{address,jdbcType=VARCHAR}, #{createBy,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{updateBy,jdbcType=BIGINT}, #{updateTime,jdbcType=TIMESTAMP})
+      #{nation,jdbcType=VARCHAR}, #{identityCard,jdbcType=VARCHAR}, #{birthday,jdbcType=VARCHAR}, 
+      #{isMarried,jdbcType=INTEGER}, #{address,jdbcType=VARCHAR}, #{createBy,jdbcType=BIGINT}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=BIGINT}, #{updateTime,jdbcType=TIMESTAMP}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.sichuang.bean.entity.SysUser" >
     insert into sys_user
@@ -204,6 +207,9 @@
       </if>
       <if test="nation != null" >
         nation,
+      </if>
+      <if test="identityCard != null" >
+        identity_card,
       </if>
       <if test="birthday != null" >
         birthday,
@@ -284,6 +290,9 @@
       </if>
       <if test="nation != null" >
         #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="identityCard != null" >
+        #{identityCard,jdbcType=VARCHAR},
       </if>
       <if test="birthday != null" >
         #{birthday,jdbcType=VARCHAR},
@@ -374,6 +383,9 @@
       <if test="record.nation != null" >
         nation = #{record.nation,jdbcType=VARCHAR},
       </if>
+      <if test="record.identityCard != null" >
+        identity_card = #{record.identityCard,jdbcType=VARCHAR},
+      </if>
       <if test="record.birthday != null" >
         birthday = #{record.birthday,jdbcType=VARCHAR},
       </if>
@@ -421,6 +433,7 @@
       weight = #{record.weight,jdbcType=VARCHAR},
       height = #{record.height,jdbcType=VARCHAR},
       nation = #{record.nation,jdbcType=VARCHAR},
+      identity_card = #{record.identityCard,jdbcType=VARCHAR},
       birthday = #{record.birthday,jdbcType=VARCHAR},
       is_married = #{record.isMarried,jdbcType=INTEGER},
       address = #{record.address,jdbcType=VARCHAR},
@@ -489,6 +502,9 @@
       <if test="nation != null" >
         nation = #{nation,jdbcType=VARCHAR},
       </if>
+      <if test="identityCard != null" >
+        identity_card = #{identityCard,jdbcType=VARCHAR},
+      </if>
       <if test="birthday != null" >
         birthday = #{birthday,jdbcType=VARCHAR},
       </if>
@@ -533,6 +549,7 @@
       weight = #{weight,jdbcType=VARCHAR},
       height = #{height,jdbcType=VARCHAR},
       nation = #{nation,jdbcType=VARCHAR},
+      identity_card = #{identityCard,jdbcType=VARCHAR},
       birthday = #{birthday,jdbcType=VARCHAR},
       is_married = #{isMarried,jdbcType=INTEGER},
       address = #{address,jdbcType=VARCHAR},

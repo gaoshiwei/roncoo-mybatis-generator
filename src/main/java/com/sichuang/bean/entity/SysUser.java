@@ -42,6 +42,8 @@ public class SysUser implements Serializable {
 
     private String nation;
 
+    private String identityCard;
+
     private String birthday;
 
     private Integer isMarried;
@@ -210,6 +212,14 @@ public class SysUser implements Serializable {
         this.nation = nation == null ? null : nation.trim();
     }
 
+    public String getIdentityCard() {
+        return identityCard;
+    }
+
+    public void setIdentityCard(String identityCard) {
+        this.identityCard = identityCard == null ? null : identityCard.trim();
+    }
+
     public String getBirthday() {
         return birthday;
     }
@@ -291,6 +301,7 @@ public class SysUser implements Serializable {
         sb.append(", weight=").append(weight);
         sb.append(", height=").append(height);
         sb.append(", nation=").append(nation);
+        sb.append(", identityCard=").append(identityCard);
         sb.append(", birthday=").append(birthday);
         sb.append(", isMarried=").append(isMarried);
         sb.append(", address=").append(address);
